@@ -7,6 +7,8 @@ const { urlencoded } = require("body-parser");
 const app = express();
 
 
+
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -159,6 +161,17 @@ app.post("/delete", function (req, res) {
 
 
 
-app.listen(1337, function () {
-    console.log("server is listening on port 1337...");
+
+
+
+
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 1337;
+}
+
+
+app.listen(port, function () {
+    console.log("server has been setted up successfully...");
 })
