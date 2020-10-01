@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.qufvp.mongodb.net/itemsDB?retryWrites=true&w=majority", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_ATLAS_URL, { useNewUrlParser: true });
 
 const itemsSchema = new mongoose.Schema({
 
